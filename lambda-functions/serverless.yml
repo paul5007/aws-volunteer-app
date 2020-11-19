@@ -23,9 +23,9 @@ package:
     - EventCreate/**
     - EventRead/**
     - EventReadAll/**
-    - EventRoleCreate/**
-    - EventRoleList/**
-    - EventRoleReadAllForUser/**
+    - RoleCreate/**
+    - RoleListForEvent/**
+    - RoleReadAllForUser/**
     - UserCreate/**
     - UserLogin/**
     - UserRead/**
