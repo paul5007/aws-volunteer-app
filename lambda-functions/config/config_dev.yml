@@ -1,0 +1,5 @@
+PGDATABASE: postgres
+PGHOST: database-1.cbnw6nneqhcp.us-east-1.rds.amazonaws.com
+PGPASSWORD: demo12345
+PGPORT: 5432
+PGUSER: postgres
