@@ -35,13 +35,14 @@ exports.handler = (event, context, callback) => {
         };
         callback(null, response);
       } else {
+        var token = { "token": username }
         var response = {
           statusCode: 200,
           isBase64Encoded: false,
           headers: {
             "Access-Control-Allow-Origin": "*"
           },
-          body: "Success"
+          body: JSON.stringify(token)
         };
         callback(null, response);
       }

@@ -7,7 +7,7 @@ exports.handler = (event, context, callback) => {
     const username = event["pathParameters"]["username"];
 
     pool.query(
-        'SELECT "roleName", "description", "minVolunteers", "maxVolunteers" from public."Role" r LEFT OUTER JOIN public."EventRoleUserLinking" erul ON r."roleId" = erul."roleId" where erul."username" = $1;',
+        'SELECT  e."eventName", e."description", e."startTime", e."endTime", e."eventId", r."roleName" from public."EventRoleUserLinking" erul RIGHT OUTER JOIN public."Role" r ON r."roleId" = erul."roleId" RIGHT OUTER JOIN public."Event" e ON e."eventId" = erul."eventId" where erul."username" = $1;',
         [username],
         (err, res) => {
             var response = {
