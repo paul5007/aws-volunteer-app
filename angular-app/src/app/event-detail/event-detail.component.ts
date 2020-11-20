@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
 export class EventDetailComponent implements OnInit {
 
   public event;
-  public eventRoles;
+  public roles;
   public currentUser: String = "";
 
   constructor(private eventService: EventService, private userService: UserService, private route: ActivatedRoute) { }
@@ -21,7 +21,7 @@ export class EventDetailComponent implements OnInit {
       this.event = resp
     });
     this.eventService.getEventRoles(this.route.snapshot.paramMap.get('id')).subscribe(resp => {
-      this.eventRoles = resp;
+      this.roles = resp;
     })
     this.currentUser = this.userService.getCurrentUser();
   }

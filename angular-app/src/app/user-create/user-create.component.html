@@ -1,1 +1,51 @@
-<p>user-create works!</p>
+<h1 class="col-md-4 offset-md-4">Create Account</h1>
+<form class="container" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group col-md-4 offset-md-4">
+    <label for="username">Username <small>(Required)</small></label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      placeholder="Enter username"
+      formControlName="username"
+      required
+    />
+    <small *ngIf="failedUsername" class="text-danger" for="username"
+      >Username required</small
+    >
+  </div>
+  <div class="form-group col-md-4 offset-md-4">
+    <label for="password">Password <small>(Required)</small></label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Enter a password"
+      formControlName="password"
+      required
+    />
+    <small *ngIf="failedPassword" class="text-danger" for="password"
+      >Password required</small
+    >
+    <small *ngIf="failedCreate" class="text-danger" for="password"
+      >Username already exists</small
+    >
+  </div>
+  <div class="form-group col-md-4 offset-md-4">
+    <label for="email">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      aria-describedby="emailHelp"
+      placeholder="Enter email"
+      formControlName="email"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    >
+  </div>
+
+  <button type="submit" class="btn btn-primary offset-md-4">Submit</button>
+  <a class="ml-2" [routerLink]="'/login'">Already have one? Let's login!</a>
+</form>

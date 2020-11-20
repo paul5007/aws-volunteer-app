@@ -1,27 +1,21 @@
 <div class="row">
-    <h1>All Events</h1>
-    <div *ngIf="hasCurrentUser">
-      <button class="btn btn-primary ml-5 mt-2" (click)="createEvent()">
-        Create New Event
-      </button>
-    </div>
+  <h1>All Events</h1>
+  <div *ngIf="hasCurrentUser">
+    <button class="btn btn-primary ml-5 mt-2" (click)="createEvent()">
+      Create New Event
+    </button>
   </div>
-  <ul class="list-group" *ngFor="let e of events">
-    <li class="list-group-item mb-2">
-      <h5>{{ e.EventName }}</h5>
-      <h6>{{ e.Description }}</h6>
-      <span class="float-right">
-        <span>Organizer : {{ e.CreatedBy }}</span>
-        <button class="btn btn-primary ml-2" (click)="viewEvent(e.ID)">
-          View
-        </button>
-      </span>
-      <p>
-        Starts {{ e.EventStartTime | date }}
-        <span *ngIf="e.EventEndTime != 0">
-          : Ends {{ e.EventEndTime | date }}
-        </span>
-      </p>
-    </li>
-  </ul>
-  
+</div>
+<ul class="list-group" *ngFor="let e of events">
+  <li class="list-group-item mb-2">
+    <h3>{{ e.eventName }}</h3>
+    <p>{{ e.description }}</p>
+    <span class="float-right">
+      <button class="btn btn-primary ml-2" (click)="viewEvent(e.eventId)">
+        View
+      </button>
+    </span>
+    <h6>Starts: {{ e.startTime | date: "medium" }}</h6>
+    <h6>Ends: {{ e.endTime | date: "medium" }}</h6>
+  </li>
+</ul>

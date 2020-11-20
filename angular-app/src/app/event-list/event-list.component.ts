@@ -11,14 +11,13 @@ import { UserService } from '../user.service';
 export class EventListComponent implements OnInit {
 
   public hasCurrentUser: boolean = false;
+  public events: [];
 
   constructor(private eventService: EventService, private userService: UserService, private router: Router) {
     if (userService.getCurrentUser() != "") {
       this.hasCurrentUser = true;
     }
   }
-
-  public events: [];
 
   ngOnInit() {
     this.eventService.getAllEvents().subscribe(resp => {

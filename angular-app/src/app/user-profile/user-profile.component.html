@@ -1,6 +1,6 @@
 <ng-container *ngIf="events?.length == 0; else elseTemplate">
   <h3>You are not participating in any events!</h3>
-  <h5>Check them out in the "Events" tab</h5>
+  <h5>Check them out in the "Events" tab or click<a class="ml-2" [routerLink]="'/events'">here</a></h5>
 </ng-container>
 <ng-template #elseTemplate>
   <h1>Events You Are Volunteering For</h1>
@@ -8,11 +8,11 @@
 
 <ul class="list-group" *ngFor="let e of events">
   <li class="list-group-item mb-2">
-    {{ e.EventName }} : {{ e.Description }}
+    {{ e.eventName }} : {{ e.description }}
     <span class="float-right"
-      >{{ e.RoleName }}
+      >{{ e.roleName }}
       <span
-        ><button class="btn btn-primary ml-2" (click)="viewEvent(e.ID)">
+        ><button class="btn btn-primary ml-2" (click)="viewEvent(e.eventId)">
           View
         </button></span
       >
