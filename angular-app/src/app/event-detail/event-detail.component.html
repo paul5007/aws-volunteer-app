@@ -1,0 +1,27 @@
+<h1>{{ event?.EventName }}</h1>
+<h3>{{ event?.Description }}</h3>
+<h6>
+  Start Date: {{ event?.EventStartTime | date }}
+  <span *ngIf="event?.EventEndTime != 0">
+    End Date: {{ event?.EventEndTime | date }}</span
+  >
+</h6>
+<p>Minimum Volunteers: {{ event?.MinVolunteers }}</p>
+<p *ngIf="event?.MaxVolunteers != -1">
+  Maximum Volunteers: {{ event?.MaxVolunteers }}
+</p>
+<h3>Available Roles</h3>
+<ul *ngFor="let e of eventRoles" class="list-group">
+  <li class="list-group-item">
+    <p cl>
+      {{ e.RoleName }} : {{ e.RoleDescription }}
+      <span *ngIf="currentUser != ''" class="float-right"
+        ><button class="btn btn-primary" disabled>Sign Up</button></span
+      >
+    </p>
+    <p>Max available positions: {{ e.RoleMaxVolunteers }}</p>
+  </li>
+</ul>
+<small
+  >Created by: {{ event?.CreatedBy }} on {{ event?.CreateTime | date }}</small
+>
